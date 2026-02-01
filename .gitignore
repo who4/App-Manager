@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / Build
+build/
+dist/
+*.spec
+
+# PyInstaller
+*.manifest
+
+# Config (User specific)
+config.json
+
+# VS Code
+.vscode/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# Logs
+*.log
