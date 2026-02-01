@@ -1,24 +1,32 @@
 # App Manager
 
-A generic application manager for launching and managing Python scripts and batch files.
+I built this tool to organize my growing collection of Python scripts and batch files. It's a simple, clean dashboard that lets you manage and launch your local apps without digging through folders every time.
 
-## Features
--   **Dashboard**: A clean, modern interface to view your apps.
--   **Batch Support**: Launch `.bat` and `.cmd` files directly.
--   **Management**: Add, remove, and configure entry points for your apps.
--   **Installer**: Easy-to-use setup script included.
+## What it does
+-   **All in one place**: Scans your projects folder and shows everything in a nice grid.
+-   **Runs anything**: Works with Python scripts (`.py`) and Windows Batch files (`.bat`/`.cmd`).
+-   **Customizable**: You can add specific apps manually or change which file launching them.
+-   **Dark Mode**: It just looks better.
 
-## Installation
-Download the latest release from the [Releases](https://github.com/yourusername/app-manager/releases) page.
+## How to use it
+You can download the latest installer from the [Releases page](https://github.com/who4/App-Manager/releases).
 
-## Building from Source
-1.  Clone the repository.
-2.  Install dependencies:
+Just run the setup file, point it to where you keep your projects, and you're good to go.
+
+## Development
+If you want to run it from source or modify it, here is how I build it:
+
+1.  Clone the repo:
+    ```bash
+    git clone https://github.com/who4/App-Manager.git
+    ```
+2.  Install the requirements:
     ```bash
     pip install customtkinter pyinstaller winshell pywin32
     ```
-3.  Run the build tool:
+3.  Run the build script:
     ```bash
     python build_tool.py
     ```
-4.  The installer will be generated in `dist/AppManager_Setup.exe`.
+
+The installer will pop out in the `dist` folder.
