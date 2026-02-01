@@ -7,7 +7,7 @@ def clean():
     if os.path.exists("build"):
         shutil.rmtree("build")
     if os.path.exists("dist"):
-        shutil.rmtree("dist")
+        shutil.rmtree("dist", ignore_errors=True)
     if os.path.exists("AppManager.spec"):
         os.remove("AppManager.spec")
     if os.path.exists("AppManager_Setup.spec"):
@@ -23,6 +23,8 @@ def build_app_manager():
         '--noconsole',
         '--onedir',
         '--noconfirm',
+        '--icon=assets/app_icon.ico',
+        '--add-data=assets/app_icon.ico;assets',
         '--exclude-module=pythoncom',
         '--exclude-module=pywin32',
     ])
@@ -43,10 +45,11 @@ def build_installer():
 
     PyInstaller.__main__.run([
         'setup_script.py',
-        '--name=AppManager_Setup',
+        '--name=AppManager_Setup_v2',
         '--onefile',
         '--noconsole',  # GUI Installer
         '--noconfirm',
+        '--icon=assets/app_icon.ico',
         f'--add-data={add_data_arg}',
         # Exclude problematic modules
         '--exclude-module=pythoncom',

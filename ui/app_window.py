@@ -4,6 +4,7 @@ import queue
 import customtkinter as ctk
 from tkinter import filedialog
 import os
+import sys
 
 from config_manager import ConfigManager
 from app_scanner import AppScanner, AppModel
@@ -17,6 +18,18 @@ class AppWindow(ctk.CTk):
 
         self.title("App Manager Logic")
         self.geometry("1200x600")
+
+        # Set Icon
+        try:
+            if getattr(sys, 'frozen', False):
+                icon_path = os.path.join(sys._MEIPASS, "assets", "app_icon.ico")
+            else:
+                icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "app_icon.ico")
+            
+            if os.path.exists(icon_path):
+                self.iconbitmap(icon_path)
+        except Exception as e:
+            print(f"Failed to set icon: {e}")
         
         # Configure Theme
         ctk.set_appearance_mode("Dark")
